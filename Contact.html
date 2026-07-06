@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <header>
+         <title>Contact Us</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="PurposefulProjects.css">
+        <h1>Contact Us</h1>
+        <a href="index.html" class="header-logo-link" aria-label="Home"></a>
+
+        <nav>
+            <a href="Leaflet.html" class="nav-link">
+                <img src="HomemadeTrashCan.jpg" alt="Leaflet Trash Cans" class="nav-image">
+                <span class="nav-label">Trash Cans</span>
+            </a>
+            <a href="Journaling.html" class="nav-link">
+                <img src="JunkJournaling.jpg" alt="Journaling" class="nav-image">
+                <span class="nav-label">Journaling</span>
+            </a>
+            <a href="watercolor.html" class="nav-link">
+                <img src="watercolor.jpg" alt="Watercolor" class="nav-image">
+                <span class="nav-label">Watercolor</span>
+            </a>
+            <a href="Keychains.html" class="nav-link">
+                <img src="FishKeychains.jpg" alt="Keychains" class="nav-image">
+                <span class="nav-label">Keychains</span>
+            </a>
+        </nav>
+<main>
+    <center>
+    <h2>Feedback, Comments, and Questions</h2>
+    <h3>Contact Us Today!</h3>
+    <p>Required fields are marked with an asterisk *</p>
+    <form id="contactForm" method="post" action="#">
+        <div class="form-row">
+            <label for="myName">*Name:</label>
+            <input type="text" id="myName" name="myName" required>
+        </div>
+        <div class="form-row">
+            <label for="myEmail">*E-mail Address:</label>
+            <input type="email" id="myEmail" name="myEmail" required>
+        </div>
+        <div class="form-row">
+            <label for="CraftsTried">*Crafts you have tried:</label>
+            <select size="1" name="CraftsTried" id="CraftsTried" multiple required>
+                <option value="">Select...</option>
+                <option value="Leaflet Trash Cans">Leaflet Trash Cans</option>
+                <option value="Junk Journaling">Junk Journaling</option>
+                <option value="Watercolor">Watercolor</option>
+                <option value="Keychains">Keychains</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="myComments">*Questions and Feedback:</label>
+            <textarea id="myComments" name="myComments" rows="2" cols="30" required></textarea>
+        </div>
+        <div class="form-row">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <div id="contactMessage" style="margin-top:1rem;color:#FFFFFF;font-weight:bold;"></div>
+    </center>
+    </main>
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const contactMessage = document.getElementById('contactMessage');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const name = document.getElementById('myName').value.trim();
+                const email = document.getElementById('myEmail').value.trim();
+                const crafts = Array.from(document.getElementById('CraftsTried').selectedOptions)
+                    .map(option => option.value)
+                    .filter(value => value && value !== 'Select...');
+                const comments = document.getElementById('myComments').value.trim();
+
+                contactMessage.innerHTML = `
+                    <p>Thank you, <strong>${name}</strong>!</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Crafts tried:</strong> ${crafts.length ? crafts.join(', ') : 'None selected'}</p>
+                    <p><strong>Your message:</strong> ${comments}</p>
+                `;
+            });
+        }
+    </script>
+    </div>
+    </body>
+</html>
+<footer>
+    <table>
+        <tr>
+            <td><b><u><a href="contact.html">Contact</a></u></b></td>
+            <td>Additional Resources and Projects</td>
+            <td>Privacy Policy</td>
+        </tr>
+    </table>
+    <br>
+    
+ Copyright &copy; 2026 Purposeful Projects<br>
+            <a href="mailto:PurposefulProjects@Mpwootte.com">PurposefulProjects@mpwootte.com</a>
+    </br>
+</footer>
