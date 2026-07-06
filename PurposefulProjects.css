@@ -1,27 +1,94 @@
 header {
-    color: #8cb583; background-color: #335a2a;
-    text-align: center; 
-display:block;
-  background-image: url(Logo.png);
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 175px auto;
+    color: #FFFFFF;
+    background-color: #5e8d53;
+    text-align: center;
+    z-index: 100;
+    position: relative;
+}
+
+.header-logo-link {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 175px;
+    height: 175px;
+    display: block;
+    background-image: url(Logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.header-logo-link:hover {
+    opacity: 0.85;
+}
+
+h1 {
+    font-size: 3rem;
+    padding-top: 1rem;
+}
+.gallery span {
+display:flex;
+justify-content:space-around;
+width: 70%; 
+margin: auto;}
+
+figure{
+    position:relative; z-index: 1;
+    opacity: .75; margin: 1em;
+    background-color: #FFFFFF;
+    font-size: .5em; text-align: center;
+    transition: all 0.3s ease;
+}
+figure:hover {Opacity: 1;
+    z-index: 999;
+    box-shadow: 3px 3px 3px #333;
+    transform: scale(1.5);
 }
 img {
+    transform: rotate(1.35deg);
   width: 60px;
   height: auto;
+}
+
+.keychains-step-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.keychains-step-gallery figure {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: #e87f7f;
+}
+
+.keychains-step-gallery img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: none;
+}
+
+.step6-image {
+    width: auto !important;
+    height: auto !important;
+    max-width: 50%;
+    object-fit: contain;
 }
 
 header a {text-decoration: none;
      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}
 
-header a:link {color: #FFFFFF;}
+header a:link {color: #335a2a;}
 
 header a:visited{color: #FFFFFF;}
 
 header a:hover {color: #90C7E3;}
 
-nav li { border-bottom: 1px solid #cf8288; }
 nav {
     font-weight: bold;
     padding: 0.5rem 0;
@@ -32,25 +99,72 @@ nav {
     gap: 1rem;
     text-align: center;
 }
-nav a{
-    display: inline-block;
-    padding: 0.75em 1em;
+
+nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
-    border-bottom: 1px solid #cf8288;
 }
 
-nav a:link{color: #cf8288;}
+.nav-label {
+    font-size: 0.875rem;
+    color: #dd9198;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
 
-nav a:visited{color: #335a2a;}
+nav img.nav-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-nav a:hover{color: #2a248a;}
+nav a:hover img.nav-image {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 body {
     background-color: #335a2a;
 }
 main{
-     color: #FFFFFF;
+     color: #FFFFFF; background-color: #335a2a;
      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
      padding: 1rem;
+}
+
+form label,
+form input,
+form select,
+form textarea {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 0.5rem 0;
+}
+
+.form-row {
+    margin-bottom: 1rem;
+}
+
+form label {
+    margin-bottom: 0.25rem;
+}
+
+form input,
+form select,
+form textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    width: auto;
+    margin-top: 1rem;
+    cursor: pointer;
 }
 
 .content-row {
@@ -63,6 +177,7 @@ main{
     width: 200px;
     height: auto;
     flex-shrink: 0;
+    transform: scale(1.3);
 }
 
 .text-content {
@@ -70,13 +185,66 @@ main{
 }
 footer {
     text-align: center;
-    margin: 2rem auto 0;
-    width: fit-content;
+    margin: 2rem 0 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem 1rem;
     color: #FFFFFF;
+    background-color: #335a2a;
+    background-image: url(DSC02191.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+footer-contact {
+    color: #FFFFFF;
+    text-decoration: underline;
 }
 
 footer table {
     margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid #FFFFFF;
+}
+
+footer table td {
+    border: 1px solid #FFFFFF;
+    padding: 0.5rem 1rem;
+}
+
+footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+footer a:link {
+    color: #FFFFFF;
+}
+
+footer a:visited {
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    header {
+        background-image: none;
+        padding-bottom: 0;
+    }
+    
+    .header-logo-link {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        transform: none;
+        margin: 1rem auto 0;
+        display: block;
+    }
+    
+    nav {
+        position: relative;
+        padding-top: 1rem;
+    }
 }
 
 
